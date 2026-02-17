@@ -1,7 +1,8 @@
 resource "aws_instance" "example" {
-  ami           = "ami-048ab8ac7e8c6533d"
-  instance_type = "t3.micro"
-  vpc_security_group_ids = [ aws_security_group.allow_all.id ]
+  ami           = "ami-0c1fe732b5494dc14"
+  instance_type = "t2.micro"
+  subnet_id     = "subnet-059c51047a06f132e"
+  vpc_security_group_ids = [ aws_security_group.allow_all_new.id ]
 
   tags = {
     Name = "HelloWorld"
@@ -10,8 +11,8 @@ resource "aws_instance" "example" {
 
 
 
-resource "aws_security_group" "allow_all" {
-    name        = "allow_all"
+resource "aws_security_group" "allow_all_new" {
+    name        = "allow_all_new"
     description = "allow all traffic"
 
     ingress {
@@ -29,6 +30,6 @@ resource "aws_security_group" "allow_all" {
       ipv6_cidr_blocks = ["::/0"]
   }
     tags = {
-      Name = "allow_all"
+      Name = "allow_all_new"
   }
 }
