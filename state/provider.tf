@@ -11,10 +11,11 @@ terraform {
     bucket = "amar-s3-2nd-bucket"
     key    = "remote-state-demo"
     region = "us-east-1"
-    dynamodb_table = "84s-remote-state"
+    encrypt= true
+    use_lockfile=true
   }
 }
 
 provider "aws" {
   # Configuration options
-}
+}   
